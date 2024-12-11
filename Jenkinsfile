@@ -15,9 +15,6 @@ pipeline {
         stage('Setup') {
             steps {
                 sh '''
-                    ls -la $KUBECONFIG
-                    chmod 644 $KUBECONFIG
-                    ls -la $KUBECONFIG'
                     python3 -m venv app
                     app/bin/pip install -r requirements.txt
                 '''
