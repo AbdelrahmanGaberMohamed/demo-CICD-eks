@@ -4,9 +4,10 @@ pipeline {
     environment {
         IMAGE_NAME = 'abdelrahmangaber/jenkins-test'
         IMAGE_TAG = "${IMAGE_NAME}:${env.GIT_COMMIT}"
-        KUBECONFIG = credentials('kubeconfig-credentials-id')
+        //KUBECONFIG = credentials('kubeconfig-credentials-id')
         AWS_ACCESS_KEY_ID = credentials('aws-access-key')
-        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')    
+        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
+        CLUSTER_NAME = 'demo-eks'   
     }
 
     
@@ -60,7 +61,10 @@ pipeline {
         stage('Deploy to EKS')
         {
             steps {
-                sh "kubectl set image deployment/flask-app flask-app=${IMAGE_TAG}"
+                sh '''
+                    aws eks update-kubeconfig --name ${CLUSTER_NAME}
+                    kubectl set image deployment/flask-app flask-app=${IMAGE_TAG}
+                '''
             }
         }         
     }
