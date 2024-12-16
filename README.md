@@ -7,7 +7,7 @@ Project prerequisites:
 
 Clone this repo to your machine:
   - git clone https://github.com/AbdelrahmanGaberMohamed/demo-CICD-eks
-  - create an new repo in you GitHub and push the code to it
+  - create a new repo in your GitHub and push the code to it
   - Note: If you create the repo as private you will need to pass credentials for Jenkins to authenticate with GitHub
 
 Using Jenkins credential manager create the following credentials:
@@ -16,7 +16,8 @@ Using Jenkins credential manager create the following credentials:
   - amazon_secret_access_key, type: secret text [Used to authenticate with AWS]
 
 Create a new pipeline and set the trigger to the GitHub hook (Check this tutorial on how to create GitHub hooks https://www.blazemeter.com/blog/how-to-integrate-your-github-repository-to-your-jenkins-project).
-The first tun must be triggered manually
+
+The first Run must be triggered manually.
 
 After a new commit is added to the repo the pipeline will be triggered via GitHub hooks and a new build will start
 Stages:
