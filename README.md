@@ -6,7 +6,7 @@ Project prerequisites:
   - AWS EKS cluster created and a deployment is running with a dummy image.
 
 Clone this repo to your machine:
-  - git clone <repo URL>
+  - git clone https://github.com/AbdelrahmanGaberMohamed/demo-CICD-eks
   - create an new repo in you GitHub and push the code to it
   - Note: If you create the repo as private you will need to pass credentials for Jenkins to authenticate with GitHub
 
